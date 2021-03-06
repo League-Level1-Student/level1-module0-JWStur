@@ -2,9 +2,13 @@ package _08_jack_in_the_box;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class jack_in_the_box implements ActionListener {
@@ -17,14 +21,16 @@ public class jack_in_the_box implements ActionListener {
         frame.add(button);
         frame.pack();
         button.addActionListener(this); 
-        int timesPressed = 0
+       
          
    }
-
+    int timesPressed = 0;
+    
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		timesPressed += 1;
 		if (timesPressed == 5) {
-			showPicture(jackInTheBox)
+			showPicture("jackInTheBox.png");
 		}
 	}
 	
@@ -39,6 +45,7 @@ public class jack_in_the_box implements ActionListener {
 	     } catch (Exception e) {
 	          e.printStackTrace();
 	     }
+	}
 	     private JLabel createLabelImage(String fileName) {
 	         try {
 	              URL imageURL = getClass().getResource(fileName);
